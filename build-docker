@@ -1,0 +1,3 @@
+#!/bin/bash -e
+
+docker run --rm -v $PWD:/opt/51d artifactory.cobalt.com/device-detection:latest /opt/51d/entry.sh

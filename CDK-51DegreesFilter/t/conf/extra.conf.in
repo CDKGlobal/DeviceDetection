@@ -1,0 +1,18 @@
+PerlSwitches -w
+
+ScriptAlias /cgi-bin @ServerRoot@/cgi-bin
+<Location /cgi-bin>
+  SetHandler cgi-script
+  Options +ExecCGI +Includes
+</Location>
+
+PerlTransHandler +CDK::51DegreesFilter
+PerlSetEnv DeviceRepository @ServerRoot@/data/51Degrees-Lite.dat
+PerlSetEnv DevicePropertyList ScreenPixelsHeight,BatteryCapacity
+PerlSetEnv DevicePrefix _51D
+
+<IfModule mod_cgid.c>
+    ScriptSock /tmp/cgisock
+</IfModule>
+
+

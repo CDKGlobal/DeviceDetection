@@ -1,0 +1,19 @@
+#!/bin/bash
+
+source /etc/apache2/envvars
+export APACHE_TEST_HTTPD=/usr/sbin/apache2
+export PERL_TEST_HARNESS_DUMP_TAP=/opt/51d/CDK-51DegreesFilter/dist/results
+
+(cd /opt/51d/51Degrees-PatternWrapper-Perl && \
+	perl Makefile.PL && \
+	make && \
+	make dist && \
+	sudo make install && \
+	../rpm.sh FiftyOneDegrees-PatternV3-0.01)
+
+(cd /opt/51d/CDK-51DegreesFilter && \
+        perl Build.PL && \
+        ./Build && \
+        ./Build test && \
+	./Build dist && \
+	../rpm.sh CDK-51DegreesFilter-0.01)

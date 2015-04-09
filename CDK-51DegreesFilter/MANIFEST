@@ -1,0 +1,9 @@
+Changes
+lib/CDK/51DegreesFilter.pm
+Build.PL
+MANIFEST
+README
+t/CDK-51DegreesFilter.t
+t/cgi-bin/index.cgi
+t/conf/extra.conf.in
+t/data/51Degrees-Lite.dat
